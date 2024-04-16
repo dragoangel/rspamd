@@ -235,6 +235,10 @@ exports.lua_bayes_init_cache = function(classifier_ucl, statfile_ucl)
     if default_conf[k] == nil then
       conf[k] = nil
     end
+    -- Force cache_max_keys to be not lower then 2
+    if conf['cache_max_keys'] <= 2 then
+      conf['cache_max_keys'] = 2
+    end
   end
 
   local check_script_id = lua_redis.load_redis_script_from_file("bayes_cache_check.lua", redis_params)
