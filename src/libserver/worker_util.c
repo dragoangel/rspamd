@@ -2488,7 +2488,7 @@ rspamd_metrics_to_prometheus_string(const ucl_object_t *top)
 							   "Active connections.",
 							   "connections");
 	rspamd_metrics_add_integer(&output, top,
-							   "rspamd_control_connections_total",
+							   "rspamd_control_connections",
 							   "gauge",
 							   "Control connections.",
 							   "control_connections");
